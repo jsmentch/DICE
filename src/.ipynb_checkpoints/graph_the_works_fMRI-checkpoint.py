@@ -329,12 +329,12 @@ class the_works_trainer(Trainer):
             targets = targets.to(self.device)
             # logits, FC, _, FC_sum, attention_time,attention_weights, means_logits,selected_indices,ENC_from_means = self.model(sx, targets, mode, self.device, epoch)
 
-            print("logits, kl_loss, FC, FC_temporal = self.model(sx, targets, mode, self.device, epoch)")
-            print('sx',sx.shape)
-            print('targets',targets)
-            print('mode',mode)
-            print('self.device',self.device)
-            print('epoch',epoch)
+#             print("logits, kl_loss, FC, FC_temporal = self.model(sx, targets, mode, self.device, epoch)")
+#             print('sx',sx.shape)
+#             print('targets',targets)
+#             print('mode',mode)
+#             print('self.device',self.device)
+#             print('epoch',epoch)
             
             logits, kl_loss, FC, FC_temporal = self.model(sx, targets, mode, self.device, epoch)
 
@@ -666,8 +666,8 @@ class the_works_trainer(Trainer):
             # packed = tn.pack_sequence(tr_eps, enforce_sorted=False)
             # return
             #t = time.time()
-            print('e',e)
-            print('tr_eps',tr_eps.shape)
+            # print('e',e)
+            # print('tr_eps',tr_eps.shape)
             val_loss = self.do_one_epoch(e, tr_eps, mode)
             #print("train time", time.time()-t)
             self.model.eval()
