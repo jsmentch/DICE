@@ -111,7 +111,8 @@ class NatureCNN(nn.Module):
             #     #nn.ReLU()
             # )
         else:
-            self.final_conv_size = 1 * 100 * 100
+            # self.final_conv_size = 1 * 100 * 100 #?
+            self.final_conv_size = 1 * 360 * 360 #? because something didnt match? this should be input_channels^2 ???
             self.final_conv_shape = (1, 100, 100)
             self.main = nn.Sequential(
                 # nn.Dropout(0.25),

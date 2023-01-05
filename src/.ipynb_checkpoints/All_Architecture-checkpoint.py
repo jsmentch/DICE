@@ -34,10 +34,10 @@ class combinedModel(nn.Module):
         self.device_one = device_one
         self.device_two = device_two
         self.oldpath=oldpath
-        self.time_points=155
+        self.time_points=250 #155
         self.n_heads=1
         self.attention_embedding = 48 * self.n_heads
-        self.k=10000#k
+        self.k=129600#10000#k
         self.upscale= .05#1##2#1#0.25 #HCP.005 and FBIRN region
         self.upscale2 = 0.5#1#0.5
         init_ = lambda m: init(m,
