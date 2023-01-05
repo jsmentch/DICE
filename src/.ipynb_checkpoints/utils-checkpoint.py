@@ -82,7 +82,7 @@ def get_argparser():
 
     parser.add_argument('--lr', type=float, default=2e-4,# HCP 5e-3,   #3e-4 FBIRN region,
                         help='Learning Rate foe learning representations (default: 5e-4)')
-    parser.add_argument('--batch-size', type=int, default=32, #HCP 17,#97OASIS
+    parser.add_argument('--batch-size', type=int, default=5, #32 #HCP 17,#97OASIS
                         help='Mini-Batch Size (default: 64)')
     parser.add_argument('--epochs', type=int, default=300,
                         help='Number of epochs for  (default: 100)')

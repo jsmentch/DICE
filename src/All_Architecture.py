@@ -34,7 +34,7 @@ class combinedModel(nn.Module):
         self.device_one = device_one
         self.device_two = device_two
         self.oldpath=oldpath
-        self.time_points=155
+        self.time_points=250 #155
         self.n_heads=1
         self.attention_embedding = 48 * self.n_heads
         self.k=10000#k
