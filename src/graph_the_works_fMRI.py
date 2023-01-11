@@ -329,7 +329,13 @@ class the_works_trainer(Trainer):
             targets = targets.to(self.device)
             # logits, FC, _, FC_sum, attention_time,attention_weights, means_logits,selected_indices,ENC_from_means = self.model(sx, targets, mode, self.device, epoch)
 
-
+#             print("logits, kl_loss, FC, FC_temporal = self.model(sx, targets, mode, self.device, epoch)")
+#             print('sx',sx.shape)
+#             print('targets',targets)
+#             print('mode',mode)
+#             print('self.device',self.device)
+#             print('epoch',epoch)
+            
             logits, kl_loss, FC, FC_temporal = self.model(sx, targets, mode, self.device, epoch)
 
 
@@ -453,7 +459,7 @@ class the_works_trainer(Trainer):
             self.train_epoch_loss.append(epoch_loss / steps)
             self.train_epoch_accuracy.append(epoch_accuracy / steps)
         if epoch % 1 == 0:
-          self.log_results(epoch, epoch_loss / steps, epoch_loss / steps, epoch_loss / steps, epoch_accuracy / steps,
+            self.log_results(epoch, epoch_loss / steps, epoch_loss / steps, epoch_loss / steps, epoch_accuracy / steps,
                        epoch_accuracy2 / steps, epoch_roc / steps, epoch_roc2 / steps, epoch_prec / steps, epoch_recall / steps, prefix=mode)
         if mode == "eval" and epoch > -1:
             best_on =   (epoch_accuracy / steps)# + (epoch_roc / steps) # +1/(epoch_loss / steps) +
@@ -660,6 +666,8 @@ class the_works_trainer(Trainer):
             # packed = tn.pack_sequence(tr_eps, enforce_sorted=False)
             # return
             #t = time.time()
+            # print('e',e)
+            # print('tr_eps',tr_eps.shape)
             val_loss = self.do_one_epoch(e, tr_eps, mode)
             #print("train time", time.time()-t)
             self.model.eval()
